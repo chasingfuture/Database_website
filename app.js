@@ -29,6 +29,14 @@ if ('development' == app.get('env')) {
 //! for example: app.get('/', index.view);
 var index = require('./routes/index');
 app.get('/', index.view);
+var home = require('./routes/home');
+app.get('/home', home.view);
+var chimps = require('./routes/chimps');
+app.get('/chimps', chimps.view);
+var human = require('./routes/human');
+app.get('/human', human.view);
+var dogs = require('./routes/dogs');
+app.get('/dogs', dogs.view);
 
 http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));

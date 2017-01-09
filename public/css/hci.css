@@ -1,0 +1,28 @@
+.navbar-default {
+  text-transform:uppercase;
+  font-family: "Gill Sans", Calibri, AvenirNext, Avenir, HelveticaNeue, Helvetica, Arial, Verdana, sans-serif;
+  font-size: 14pt;
+}
+
+.navbar-default .navbar-brand {
+  font-size: 18pt;
+}
+
+.navbar-nav {
+    font-weight: 300;
+}
+
+.input[type=text] {
+    width: 130px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+/* When the input field gets focus, change its width to 100% */
+input[type=text]:focus {
+    width: 100%;
+}
+
+#main_create_form {
+    margin-top: 80px;
+}
