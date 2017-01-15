@@ -1,3 +1,3 @@
 exports.view = function(req, res){
-	res.render('chimps');
+	res.render('home');
 };

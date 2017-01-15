@@ -13,21 +13,6 @@
 
 <body data-spy="scroll" data-target=".navbar-fixed-top">
     <!-- Fixed navbar -->
-    <style type="text/css">
-    li.dropdown:hover > ul.dropdown-menu {
-        display: block;
-    }
-    li.dropdown:hover {
-        color: #555;
-        background-color: #e7e7e7;
-        box-shadow: inset 0 3px 9px rgba(0,0,0,0.075);
-        -webkit-box-shadow: inset 0 3px 9px rgba(0,0,0,0.075);
-    }
-    .sidenav-anchor {
-        padding-top: 62px;
-        margin-top: -62px; 
-    }
-</style>
 
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
@@ -43,7 +28,7 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="home">Home</a></li>  
-                <li class="active"><a href="chimps">Chimps</a></li>                
+                <li class="active"><a href="primates">primates</a></li>                
                 <li><a href="human">Human</a></li>                
                 <li><a href="dogs">Dogs</a></li>  
             </ul>
@@ -56,23 +41,38 @@
     <div class="col-sm-6">
           <form id="main_create_form" action = "/submit_new_task" method="get">
             <div class="form-group">
-              <label for="taskname">Video Name: </label>
-              <input type="text" class="form-control" id="taskname" name="taskname" placeholder="Video namw here">
+              <label for="fileName">Name of File: </label>
+              <input type="text" class="form-control" id="taskname" name="taskname" placeholder="Video name here">
             </div>
 
             <div class="form-group">
-              <label for="calendar">Video Date: </label>
+              <label for="date">Date Recorded: </label>
               <input type="text" class="form-control" id="calendar" name="due_date" placeholder="The date video was took here">
             </div>
+              
+            <div class="form-group">
+              <label for="species">Species: </label>
+              <input type="text" class="form-control" id="taskname" name="taskname" placeholder="gorilla or bonobo">
+            </div>
+              
+            <div class="form-group">
+              <label for="infantName">Infant Name: </label>
+              <input type="text" class="form-control" id="taskname" name="taskname" placeholder="Yaro">
+            </div>
+
 
             <div class="time_due_field form-group">
               <label for="timedue">Time Due: </label>
               <input type="time" class="form-control" id="timedue">
             </div>
+              
+            <input type="submit" value="next" class="btn btn-secondary"/>
+            <a href="home">    Cancel </a>
         </form>
     </div>
     
     <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/build/jquery.datetimepicker.full.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -81,7 +81,7 @@
     <script>
      $(function() {
       $( "#calendar" ).datepicker();   
-    }
+    })
     </script>
     
 </body>

@@ -31,12 +31,17 @@ var index = require('./routes/index');
 app.get('/', index.view);
 var home = require('./routes/home');
 app.get('/home', home.view);
-var chimps = require('./routes/chimps');
-app.get('/chimps', chimps.view);
+var primates = require('./routes/primates');
+app.get('/primates', primates.view);
 var human = require('./routes/human');
 app.get('/human', human.view);
 var dogs = require('./routes/dogs');
 app.get('/dogs', dogs.view);
+var signup = require('./routes/signup');
+app.get('/signup', signup.view);
+var submit_new_task = require('./routes/submit_new_task');
+app.get('/submit_new_task', submit_new_task.view);
+
 
 http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
