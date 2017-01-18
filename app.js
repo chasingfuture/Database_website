@@ -43,8 +43,8 @@ if ('development' == app.get('env')) {
 var index = require('./routes/index');
 app.get('/', function (req, res) { index.view(req, res, connection) } );
 
-var index = require('./routes/login');
-app.post('/', function (req, res) { index.view(req, res, connection) } );
+var login = require('./routes/login');
+app.post('/', function (req, res) { login.view(req, res, connection) } );
 
 var home = require('./routes/home');
 app.get('/home', function (req, res) { home.view(req, res, connection) } );
