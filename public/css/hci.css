@@ -28,17 +28,21 @@ input[type=text]:focus {
     margin-left: 55px;
 }
 
-    li.dropdown:hover > ul.dropdown-menu {
-        display: block;
-    }
-    li.dropdown:hover {
-        color: #555;
-        background-color: #e7e7e7;
-        box-shadow: inset 0 3px 9px rgba(0,0,0,0.075);
-        -webkit-box-shadow: inset 0 3px 9px rgba(0,0,0,0.075);
-    }
-    .sidenav-anchor {
-        padding-top: 62px;
-        margin-top: -62px; 
-    }
+li.dropdown:hover > ul.dropdown-menu {
+    display: block;
+}
+li.dropdown:hover {
+    color: #555;
+    background-color: #e7e7e7;
+    box-shadow: inset 0 3px 9px rgba(0,0,0,0.075);
+    -webkit-box-shadow: inset 0 3px 9px rgba(0,0,0,0.075);
+}
+.sidenav-anchor {
+    padding-top: 62px;
+    margin-top: -62px;
+}
 
+.primates_list {
+  position: relative;
+  top: 125px;
+}

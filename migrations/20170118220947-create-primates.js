@@ -3,7 +3,7 @@ var type = dbm.dataType;
 
 exports.up = function(db, callback) {
   db.createTable('primates', {
-    id:            { type: 'int', primaryKey: true },
+    id:            { type: 'int', primaryKey: true, autoIncrement: true },
     file_name:     'string',
     recorded_date: 'date',
     species:       'string',

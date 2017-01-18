@@ -2,13 +2,13 @@
 
 <html>
 <head>
-	<title>CCL Database</title>	
+	<title>CCL Database</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/bootstrap-theme.min.css" rel="stylesheet">
 	<link href="css/hci.css" rel="stylesheet">
-    <style> 
+    <style>
     input[type=text] {
     width: 250px;
     box-sizing: border-box;
@@ -18,7 +18,7 @@
     background-color: white;
     background-image: url('img/Search-128.png');
     background-size: 30px 30px;
-    background-position: 10px 10px; 
+    background-position: 10px 10px;
     background-repeat: no-repeat;
     padding: 12px 20px 12px 40px;
     -webkit-transition: width 0.4s ease-in-out;
@@ -52,24 +52,55 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="home">CCL DATABASE</a>        
+            <a class="navbar-brand" href="home">CCL DATABASE</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="home">Home</a></li>               
-                <li><a href="primates">Primates</a></li>                
-                <li><a href="human">Human</a></li>                
-                <li><a href="dogs">Dogs</a></li>               
+                <li class="active"><a href="home">Home</a></li>
+                <li><a href="primates">Primates</a></li>
+                <li><a href="human">Human</a></li>
+                <li><a href="dogs">Dogs</a></li>
             </ul>
-            
+
         </div>
         <!--/.nav-collapse -->
     </div>
 </div>
-    <img src="img/ccl_logo.jpg" height=70px align=left>  
+
+<!-- Logo & search bar -->
+<div class="container">
+    <img src="img/ccl_logo.jpg" height=70px align=left>
     <form>
         <input type="text" name="search" placeholder="Search..">
     </form>
-    
+</div>
+
+<!-- Primates list -->
+<div class="container primates_list">
+		<table class="table">
+			<thead>
+				<th>ID</th>
+				<th>Name of the file</th>
+				<th>Date recorded</th>
+				<th>Species</th>
+				<th>Infant Name</th>
+				<th>Time Due</th>
+			</thead>
+
+			<tbody>
+				{{#each primates}}
+					<tr>
+						<td>{{id}}</td>
+						<td>{{file_name}}</td>
+						<td>{{recorded_date}}</td>
+						<td>{{species}}</td>
+						<td>{{infant_name}}</td>
+						<td>{{time_due}}</td>
+					</tr>
+				{{/each}}
+			</tbody>
+		</table>
+</div>
+
 </body>
 </html>
