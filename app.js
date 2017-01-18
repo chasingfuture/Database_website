@@ -7,14 +7,15 @@ var app         = express();
 var mysql       = require('mysql');
 
 //! Create connection to database
-// var connection = mysql.createConnection({
-//   host     : 'localhost',
-//   user     : 'root',
-//   password : '',
-//   database : 'database_website'
-// });
-//
-// connection.connect();
+var connection = mysql.createConnection({
+  host     : 'localhost',
+  port     : 8889,
+  user     : 'root',
+  password : 'root',
+  database : 'database_website'
+});
+
+connection.connect();
 connection = 1
 
 //! all environments
@@ -43,6 +44,9 @@ if ('development' == app.get('env')) {
 //! for example: app.get('/', index.view);
 var index = require('./routes/index');
 app.get('/', function (req, res) { index.view(req, res, connection) } );
+
+var index = require('./routes/login');
+app.post('/', function (req, res) { index.view(req, res, connection) } );
 
 var home = require('./routes/home');
 app.get('/home', function (req, res) { home.view(req, res, connection) } );
