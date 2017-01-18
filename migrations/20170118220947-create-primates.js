@@ -4,7 +4,7 @@ var type = dbm.dataType;
 exports.up = function(db, callback) {
   db.createTable('primates', {
     id:            { type: 'int', primaryKey: true },
-    name:          'string',
+    file_name:     'string',
     recorded_date: 'date',
     species:       'string',
     infant_name:   'string',

@@ -14,9 +14,7 @@ var connection = mysql.createConnection({
   password : 'root',
   database : 'database_website'
 });
-
 connection.connect();
-connection = 1
 
 //! all environments
 app.set('port', process.env.PORT || 3000);
@@ -63,8 +61,8 @@ app.get('/dogs', function (req, res) { dogs.view(req, res, connection) } );
 var signup = require('./routes/signup');
 app.get('/signup', function (req, res) { signup.view(req, res, connection) } );
 
-var submit_new_task = require('./routes/submit_new_task');
-app.get('/submit_new_task', function (req, res) { submit_new_task.view(req, res, connection) } );
+var create_primate = require('./routes/create_primate');
+app.post('/create_primate', function (req, res) { create_primate.view(req, res, connection) } );
 
 
 

@@ -2,7 +2,7 @@
 
 <html>
 <head>
-	<title>CCL Database</title>	
+	<title>CCL Database</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -23,66 +23,66 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="home">CCL DATABASE</a>        
+            <a class="navbar-brand" href="home">CCL DATABASE</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="home">Home</a></li>  
-                <li class="active"><a href="primates">primates</a></li>                
-                <li><a href="human">Human</a></li>                
-                <li><a href="dogs">Dogs</a></li>  
+                <li><a href="home">Home</a></li>
+                <li class="active"><a href="primates">primates</a></li>
+                <li><a href="human">Human</a></li>
+                <li><a href="dogs">Dogs</a></li>
             </ul>
-            
+
         </div>
         <!--/.nav-collapse -->
     </div>
 </div>
 
     <div class="col-sm-6">
-          <form id="main_create_form" action = "/submit_new_task" method="get">
+          <form id="main_create_form" action = "/create_primate" method="post">
             <div class="form-group">
               <label for="fileName">Name of File: </label>
-              <input type="text" class="form-control" id="taskname" name="taskname" placeholder="Video name here">
+              <input type="text" class="form-control" id="taskname" name="fileName" placeholder="Video name here">
             </div>
 
             <div class="form-group">
               <label for="date">Date Recorded: </label>
-              <input type="text" class="form-control" id="calendar" name="due_date" placeholder="The date video was took here">
+              <input type="text" class="form-control" id="calendar" name="date" placeholder="The date video was took here">
             </div>
-              
+
             <div class="form-group">
               <label for="species">Species: </label>
-              <input type="text" class="form-control" id="taskname" name="taskname" placeholder="gorilla or bonobo">
+              <input type="text" class="form-control" id="taskname" name="species" placeholder="gorilla or bonobo">
             </div>
-              
+
             <div class="form-group">
               <label for="infantName">Infant Name: </label>
-              <input type="text" class="form-control" id="taskname" name="taskname" placeholder="Yaro">
+              <input type="text" class="form-control" id="taskname" name="infantName" placeholder="Yaro">
             </div>
 
 
             <div class="time_due_field form-group">
               <label for="timedue">Time Due: </label>
-              <input type="time" class="form-control" id="timedue">
+              <input type="time" class="form-control" id="timedue" name="timedue">
             </div>
-              
+
             <input type="submit" value="next" class="btn btn-secondary"/>
             <a href="home">    Cancel </a>
         </form>
     </div>
-    
+
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/build/jquery.datetimepicker.full.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    
-    
+
+
     <script>
      $(function() {
-      $( "#calendar" ).datepicker();   
+      $( "#calendar" ).datepicker();
     })
     </script>
-    
+
 </body>
 </html>
