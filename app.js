@@ -1,9 +1,21 @@
 //! Module dependencies.
-var express = require('express');
-var http = require('http');
-var path = require('path');
-var handlebars = require('express3-handlebars')
-var app = express();
+var express     = require('express');
+var http        = require('http');
+var path        = require('path');
+var handlebars  = require('express3-handlebars')
+var app         = express();
+var mysql       = require('mysql');
+
+//! Create connection to database
+// var connection = mysql.createConnection({
+//   host     : 'localhost',
+//   user     : 'root',
+//   password : '',
+//   database : 'database_website'
+// });
+//
+// connection.connect();
+connection = 1
 
 //! all environments
 app.set('port', process.env.PORT || 3000);
@@ -25,25 +37,34 @@ if ('development' == app.get('env')) {
     app.use(express.errorHandler());
 }
 
+
+
 //! Add routes here
 //! for example: app.get('/', index.view);
 var index = require('./routes/index');
-app.get('/', index.view);
+app.get('/', function (req, res) { index.view(req, res, connection) } );
+
 var home = require('./routes/home');
-app.get('/home', home.view);
+app.get('/home', function (req, res) { home.view(req, res, connection) } );
+
 var primates = require('./routes/primates');
-app.get('/primates', primates.view);
+app.get('/primates', function (req, res) { primates.view(req, res, connection) } );
+
 var human = require('./routes/human');
-app.get('/human', human.view);
+app.get('/human', function (req, res) { human.view(req, res, connection) } );
+
 var dogs = require('./routes/dogs');
-app.get('/dogs', dogs.view);
+app.get('/dogs', function (req, res) { dogs.view(req, res, connection) } );
+
 var signup = require('./routes/signup');
-app.get('/signup', signup.view);
+app.get('/signup', function (req, res) { signup.view(req, res, connection) } );
+
 var submit_new_task = require('./routes/submit_new_task');
-app.get('/submit_new_task', submit_new_task.view);
+app.get('/submit_new_task', function (req, res) { submit_new_task.view(req, res, connection) } );
 
 
+
+//! Run server
 http.createServer(app).listen(app.get('port'), function(){
-    console.log('Express server listening on port ' + app.get('port'));
+  console.log('Express server listening on port ' + app.get('port'));
 });
-

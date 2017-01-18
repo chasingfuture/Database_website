@@ -1,4 +1,4 @@
-exports.view = function(req, res){
+exports.view = function(req, res, db) {
   //console.log(loginData);
   res.render('signup');
 };
