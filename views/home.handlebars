@@ -80,11 +80,17 @@
 		<table class="table">
 			<thead>
 				<th>ID</th>
-				<th>Name of the file</th>
-				<th>Date recorded</th>
+				<th>Name of the File</th>
+				<th>Date Recorded</th>
 				<th>Species</th>
 				<th>Infant Name</th>
-				<th>Time Due</th>
+				<!--<th>Time Due</th>-->
+                <th>Start Time</th>
+                <th>Activity</th>
+                <th>Variation</th>
+                <th>End time</th>
+                <th>Partner</th>
+                <th>Comment</th>
 			</thead>
 
 			<tbody>
@@ -95,7 +101,13 @@
 						<td>{{recorded_date}}</td>
 						<td>{{species}}</td>
 						<td>{{infant_name}}</td>
-						<td>{{time_due}}</td>
+						<!--<td>ime_due--</td>-->
+                        <td>{{start_time}}</td>
+                        <td>{{activity}}</td>
+                        <td>{{variation}}</td>
+                        <td>{{end_time}}</td>
+                        <td>{{partner}}</td>
+                        <td>{{comment}}</td>
 					</tr>
 				{{/each}}
 			</tbody>

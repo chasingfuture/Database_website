@@ -8,7 +8,13 @@ exports.up = function(db, callback) {
     recorded_date: 'date',
     species:       'string',
     infant_name:   'string',
-    time_due:      'datetime'
+    //time_due:      'datetime'
+    start_time:   'datetime',
+    activity:   'string',
+    variation:   'string',
+    end_time:   'datetime',
+    partner:   'string',
+    comment:   'string',
   }, callback);
 };
 
