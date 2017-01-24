@@ -46,3 +46,8 @@ li.dropdown:hover {
   position: relative;
   top: 125px;
 }
+
+.table-remove {
+  color: #700;
+  cursor: pointer;
+}
