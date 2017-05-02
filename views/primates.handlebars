@@ -37,9 +37,16 @@
         <!--/.nav-collapse -->
     </div>
 </div>
-
+    
     <div class="col-sm-6">
           <form id="main_create_form" action = "/create_primate" method="post">
+
+            <!-- choose to play video -->
+            <input type="file" accept="video/*"/
+            <video controls autoplay></video>
+
+            <br />
+
             <div class="form-group">
               <label for="fileName">Name of File: </label>
               <input type="text" class="form-control" id="taskname" name="fileName" placeholder="Video name here">
@@ -47,7 +54,7 @@
 
             <div class="form-group">
               <label for="date">Date Recorded: </label>
-              <input type="text" class="form-control" id="calendar" name="date" placeholder="The date video was took here">
+              <input type="text" class="form-control" id="calendar" name="date" placeholder="The date video was taken">
             </div>
 
             <div class="form-group">
@@ -60,7 +67,7 @@
               <input type="text" class="form-control" id="taskname" name="infantName" placeholder="Yaro">
             </div>
             
-            <div class="time_due_field form-group">
+            <!--div class="time_due_field form-group">
               <label for="timedue">Start Time: </label>
               <input type="datetime" class="form-control" id="timedue" name="startTime" placeholder="2016-01-01 01:01:01">
             </div>
@@ -88,11 +95,39 @@
             <div class="form-group">
               <label for="infantName">Comment: </label>
               <input type="text" class="form-control" id="taskname" name="comment" placeholder="Sexual Behavior">
-            </div>
+            </div-->
+
+        </form>
+    </div>
+
+    <div class="col-md-11">
+        <table id="mytable" class="table table-bordred table-striped">
+            <br />
+            <br />
+            <!--<table class="table">-->
+            <thead>
+            <!-- <th>ID</th> -->
+                <th>Start Time</th>
+                <th>Activity</th>
+                <th>Variation</th>
+                <th>End time</th>
+                <th>Partner</th>
+                <th>Comment</th>
+             </thead>
+
+             <tbody>
+                <td><input type="text" name="r1_Start_Time" id="time_picker" placeholder="2016-01-01 01:01:01" ></td>
+                <td><input type="text" name="r1_Activity" placeholder="Carry"></td>
+                <td><input type="text" name="r1_Variation" placeholder="Ventral"></td>
+                <td><input type="text" name="r1_End_Time" id="time_picker" placeholder="2016-01-01 01:01:01" ></td>
+                <td><input type="text" name="r1_Partner" placeholder="Mother"></td>
+                <td><input type="text" name="r1_Comment" placeholder="Sexual Behavior"></td>
+             </tbody>
+        </table>
+
 
             <input type="submit" value="Submit" class="btn btn-secondary"/>
             <a href="home">    Cancel </a>
-        </form>
     </div>
 
     <script src="https://code.jquery.com/jquery.js"></script>

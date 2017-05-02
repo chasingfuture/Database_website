@@ -14,17 +14,19 @@ exports.up = function(db, callback) {
     end_time:   'datetime',
     partner:   'string',
     comment:   'string',
-  }, callback);
+  }, function () {
     
-    db.createTable('login', {
-    id:            { type: 'int', primaryKey: true, autoIncrement: true },
-    user_name:     'string',
-    password:      'string',
-  }, callback);
+      db.createTable('login', {
+      id:            { type: 'int', primaryKey: true, autoIncrement: true },
+      user_name:     'string',
+      password:      'string',
+    }, callback);
+  });
 };
 
 
 exports.down = function(db, callback) {
-  db.dropTable('primates', callback);
-  db.dropTable('login', callback);
+  db.dropTable('primates', function () {
+    db.dropTable('login', callback);
+  });
 };

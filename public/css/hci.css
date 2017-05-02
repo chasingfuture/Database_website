@@ -26,6 +26,7 @@ input[type=text]:focus {
 #main_create_form {
     margin-top: 80px;
     margin-left: 55px;
+    margin-right: 300px;
 }
 
 li.dropdown:hover > ul.dropdown-menu {
@@ -50,4 +51,9 @@ li.dropdown:hover {
 .table-remove {
   color: #700;
   cursor: pointer;
+}
+
+.col-md-11 {
+  margin-left: 55px;
+  margin-bottom: 80px;
 }
