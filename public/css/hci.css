@@ -53,6 +53,12 @@ li.dropdown:hover {
   cursor: pointer;
 }
 
+.video {
+   margin-left: 55px;
+   margin-top:55px;
+   margin-right: 55px;
+}
+
 .col-md-11 {
   margin-left: 55px;
   margin-bottom: 80px;

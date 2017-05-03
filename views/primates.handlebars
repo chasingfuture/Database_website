@@ -9,6 +9,7 @@
 	<link href="css/bootstrap-theme.min.css" rel="stylesheet">
 	<link href="css/hci.css" rel="stylesheet">
   <link href="css/duration-picker.css" rel="stylesheet">
+  <link href="css/video.css" rel="stylesheet">
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 
@@ -38,13 +39,20 @@
         <!--/.nav-collapse -->
     </div>
 </div>
+  
+    <div class="video">
+          <h1>HTML5 local video file player example</h1>
+          <div id="message"></div>
+          <input type="file" accept="video/*"/>
+          <video controls autoplay></video>
+    </div>  
     
     <div class="col-sm-6">
           <form id="main_create_form" action = "/create_primate" method="post">
 
-            <!-- choose to play video -->
+            <!-- choose to play video >
             <input type="file" accept="video/*"/
-            <video controls autoplay></video>
+            <video controls autoplay></video-->
 
             <br />
 
@@ -77,36 +85,6 @@
               <label for="infantName">Infant Name: </label>
               <input type="text" class="form-control" id="taskname" name="infantName" placeholder="Yaro">
             </div>
-            
-            <!--div class="time_due_field form-group">
-              <label for="timedue">Start Time: </label>
-              <input type="datetime" class="form-control" id="timedue" name="startTime" placeholder="2016-01-01 01:01:01">
-            </div>
-              
-            <div class="form-group">
-              <label for="infantName">Activity: </label>
-              <input type="text" class="form-control" id="taskname" name="activity" placeholder="Carry">
-            </div>
-              
-            <div class="form-group">
-              <label for="infantName">Variation: </label>
-              <input type="text" class="form-control" id="taskname" name="variation" placeholder="Ventral">
-            </div>
-            
-            <div class="time_due_field form-group">
-              <label for="timedue">End Time: </label>
-              <input type="datetime" class="form-control" id="timedue" name="endTime" placeholder="2016-01-01 01:01:01">
-            </div>
-              
-            <div class="form-group">
-              <label for="infantName">Partner: </label>
-              <input type="text" class="form-control" id="taskname" name="partner" placeholder="Mother">
-            </div>
-              
-            <div class="form-group">
-              <label for="infantName">Comment: </label>
-              <input type="text" class="form-control" id="taskname" name="comment" placeholder="Sexual Behavior">
-            </div-->
 
         </form>
     </div>
@@ -127,12 +105,10 @@
              </thead>
 
              <tbody>
-                <td><input type="text" id="duration" name="r1_Start_Time"></td>
-                <!--td><input type="text" name="r1_Start_Time" id="time_picker" placeholder="2016-01-01 01:01:01" ></td-->
+                <td><input type="text" id="start_time" name="r1_Start_Time"></td>
                 <td><input type="text" name="r1_Activity" placeholder="Carry"></td>
                 <td><input type="text" name="r1_Variation" placeholder="Ventral"></td>
-                <!--td><input type="text" name="r1_End_Time" id="time_picker" placeholder="2016-01-01 01:01:01" ></td-->
-                <td><input type="text" id="duration" name="r1_End_Time"></td>
+                <td><input type="text" id="end_time" name="r1_End_Time"></td>
                 <td><input type="text" name="r1_Partner" placeholder="Mother"></td>
                 <td><input type="text" name="r1_Comment" placeholder="Sexual Behavior"></td>
              </tbody>
@@ -143,30 +119,36 @@
             <a href="home">    Cancel </a>
     </div>
 
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/build/jquery.datetimepicker.full.js"></script>
+    
     <script src="js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <!--time duration picker-->
+    <script src="https://code.jquery.com/jquery.js"></script>
     <script src="//code.jquery.com/jquery.min.js"></script>
     <script src="js/duration-picker.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/build/jquery.datetimepicker.full.js"></script>
 
-    <script>
+    <script >
     $(function() {
-      $("#duration").durationPicker();
+      $("#start_time").durationPicker();
+      $("#end_time").durationPicker();
     })
     </script>
-    
-    <script>console.log( $( "#duration" ).val());</script>
 
-    <script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/build/jquery.datetimepicker.full.js"></script>
+    <script >
      $(function() {
       $( "#calendar" ).datepicker({dateFormat:'yy-mm-dd'});
     })
     </script>
-
     <script>console.log( $( "#calendar" ).val());</script>
+ 
+    <script src="js/video.js">
+      $(function(){
+        $("#message").localFileVideoPlayer();
+       });
+    </script>
 </body>
 </html>
