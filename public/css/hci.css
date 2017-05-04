@@ -23,11 +23,6 @@ input[type=text]:focus {
     width: 100%;
 }
 
-#main_create_form {
-    margin-top: 80px;
-    margin-left: 55px;
-    margin-right: 300px;
-}
 
 li.dropdown:hover > ul.dropdown-menu {
     display: block;
@@ -52,12 +47,12 @@ li.dropdown:hover {
   color: #700;
   cursor: pointer;
 }
-
+/*
 .video {
    margin-left: 55px;
    margin-top:55px;
    margin-right: 55px;
-}
+}*/
 
 .col-md-11 {
   margin-left: 55px;

@@ -2,15 +2,28 @@ video, input {
     display: block;
 }
 
+video{
+    height: 400px;
+    width: 100%;
+}
+
 input {
-    width: 100%;       
+    width: 100%;
 }
 
 .info {
-    background-color: aqua;            
+    background-color: aqua;
 }
 
 .error {
     background-color: red;
     color: white;
+}
+
+#modal1 {
+
+  height: 300px;
+}
+.form-video{
+    padding-top: 60px;
 }
