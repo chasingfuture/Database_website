@@ -23,11 +23,15 @@
     var fileURL = URL.createObjectURL(file)
     videoNode.src = fileURL
 
+  var nameRe = /^(.*?)_/g
 	var myRe = /(\d{4})_(\d{2})_(\d{2})/g
+  var nameT = nameRe.exec(file.name)
 	var test= myRe.exec(file.name);
 	$("#calendar").val(test[1]+"-"+test[2]+"-"+test[3]);
 	$("#taskname").val(file.name);
+  $("#infantName").val(nameT[1]);
   }
+
   var inputNode = document.querySelector('input')
   inputNode.addEventListener('change', playSelectedFile, false)
 })()

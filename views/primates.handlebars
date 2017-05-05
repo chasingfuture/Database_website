@@ -42,7 +42,7 @@
 	<div class="container form-video">
 		<div class="col-md-4">
 			<div class="video">
-				<h1>HTML5 local video file player example</h1>
+				<h4>Video</h4>
 				<div id="message"></div>
 				<input type="file" accept="video/*"/>
 
@@ -67,7 +67,7 @@
 					<input type="text" class="form-control" id="calendar" name="date" placeholder="The date video was taken">
 				</div>
 
-				<div class="form-group">
+				<!--div class="form-group">
 					<label for="species">Species: </label>
 					<input type="text" class="form-control" list="cars" name="species" placeholder="gorilla or bonobo">
 					<datalist id="cars">
@@ -77,14 +77,16 @@
 					</datalist>
 				</div>
 
-				<!--div class="form-group">
+
+
+				<div class="form-group">
 				<label for="species">Species: </label>
 				<input type="text" class="form-control" id="taskname" name="species" placeholder="gorilla or bonobo">
 			</div-->
 
 			<div class="form-group">
 				<label for="infantName">Infant Name: </label>
-				<input type="text" class="form-control" id="taskname" name="infantName" placeholder="Yaro">
+				<input type="text" class="form-control" id="infantName" name="infantName" placeholder="Yaro">
 			</div>
 
 		</form>
@@ -99,25 +101,46 @@
 		<br />
 		<!--<table class="table">-->
 		<thead>
-			<!-- <th>ID</th> -->
-			<th>Start Time</th>
-			<th>Activity</th>
-			<th>Variation</th>
-			<th>End time</th>
-			<th>Partner</th>
-			<th>Comment</th>
-			<th>Delete</th>
+      <th style="width:23%" >Start Time</th>
+      <th>Activity</th>
+      <th>Variation</th>
+      <th style="width:23%" >End time</th>
+      <th>Partner</th>
+      <th class="col-md-3">Comment</th>
+      <th>Delete</th>
+
 		</thead>
 
 		<tbody>
 			<tr class="coding-row">
 				<td><input type="text" id="start_time" class="row_timer" name="r1_Start_Time"></td>
-				<td><input type="text" name="r1_Activity" placeholder="Carry"></td>
-				<td><input type="text" name="r1_Variation" placeholder="Ventral"></td>
+				<td><input class="form-control" type="text" name="r1_Activity" list="activity"placeholder="Carry"></td>
+          <datalist id="activity">
+            <option>CARRY</option>
+            <option>NURSE</option>
+            <option>PLAY</option>
+            <option>COLOC</option>
+            <option>FOSHARE</option>
+            <option>GROOM</option>
+            <option>BECKON</option>
+            <option>DRUM</option>
+          </datalist>
+				<td><input class="form-control" type="text" name="r1_Variation" list="variation"placeholder="Ventral"></td>
+          <datalist id="variation">
+            <option>Ventral</option>
+            <option>Dorsal</option>
+            <option>On Arm</option>
+            <option>On Leg</option>
+            <option>Leave empty
+            </option>
+            <option>Chase</option>
+            <option>Rough and Tumble</option>
+            <option>Teasing</option>
+            <option>Other</option>
+          </datalist>
 				<td><input type="text" id="end_time" class="row_timer" name="r1_End_Time"></td>
-				<td><input type="text" name="r1_Partner" placeholder="Mother"></td>
-				<td><input type="text" name="r1_Comment" placeholder="Sexual Behavior"></td>
-				<td></td>
+				<td><input class="form-control" type="text" name="r1_Partner" placeholder="Mother"></td>
+				<td><input class="form-control" type="text" name="r1_Comment" placeholder="Sexual Behavior"></td>
 				<td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
 			</tr>
 			<tr>
@@ -127,11 +150,11 @@
 	</table>
 
 	<div class=row>
-		<div class="col-md-6">
+		<div class="col-md-2">
 			<input type="submit" value="Submit" class="btn btn-secondary"/>
+      <a href="home">    Cancel </a>
 		</div>
 	</div>
-	<a href="home">    Cancel </a>
 </div>
 
 
