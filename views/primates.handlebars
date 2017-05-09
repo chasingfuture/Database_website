@@ -113,7 +113,7 @@
 
 		<tbody>
 			<tr class="coding-row">
-				<td><input type="text" id="start_time" class="row_timer" name="r1_Start_Time"></td>
+				<td><input type="text" id="start_time" class="row_timer" name="r1_Start_Time"> <button class="set-time btn btn-success btn-xs" data-title="Delete" data-target="#delete" disabled><span class="glyphicon glyphicon-plus"></span></button></td>
 				<td><input class="form-control" type="text" name="r1_Activity" list="activity"placeholder="Carry"></td>
           <datalist id="activity">
             <option>CARRY</option>
@@ -138,7 +138,7 @@
             <option>Teasing</option>
             <option>Other</option>
           </datalist>
-				<td><input type="text" id="end_time" class="row_timer" name="r1_End_Time"></td>
+				<td><input type="text" id="end_time" class="row_timer" name="r1_End_Time"> <button class="set-time btn btn-primary btn-xs" data-title="Delete" data-target="#delete" disabled><span class="glyphicon glyphicon-plus"></span></button></td>
 				<td><input class="form-control" type="text" name="r1_Partner" placeholder="Mother"></td>
 				<td><input class="form-control" type="text" name="r1_Comment" placeholder="Sexual Behavior"></td>
 				<td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
@@ -188,14 +188,47 @@ $(function(){
 });
 </script>
 <script type="text/javascript">
+	function updateDuration(durationPicker, time){
+		var hours = Math.floor(time/3600);
+		time = time % 3600;
+		var minutes = Math.floor(time/60);
+		time = time % 60;
+		var seconds = Math.floor(time);
+		durationPicker.find("input#duration-hours").val("" + hours)
+		durationPicker.find("input#duration-minutes").val("" + minutes)
+		durationPicker.find("input#duration-seconds").val("" + seconds)
+
+		console.log(hours + " " + minutes + " " + seconds);
+
+	}
+	var ListenerSuite = {
+		setTime: function(){
+			var $video = $("video")[0];
+			$("button.set-time").click(function(){
+				console.log($video.currentTime);
+				console.log($(this).siblings(".durationpicker-container"));
+				updateDuration($(this).siblings(".durationpicker-container"), $video.currentTime);
+			});
+		}
+	}
 	$(document).ready(function(){
+		var $video = $("video")[0];
 		$("button#duplicate").click(function(){
 	        var $test = $(".coding-row");
 	        var $clone = ($test).first().clone();
 			console.log($clone);
 	        $clone.find("input").val("");
 	        $clone.appendTo("tbody");
+			ListenerSuite.setTime();
 	    })
+
+
+
+		$("video").on("play",function(){
+			$("button.set-time").each(function(){this.disabled = false});
+		})
+
+		ListenerSuite.setTime();
 	})
 </script>
 </body>
