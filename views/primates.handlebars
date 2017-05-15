@@ -49,7 +49,7 @@
 			</div>
 
 
-			<form id="main_create_form" action = "/create_primate" method="post">
+			<form id="main_create_form" action = "/create_primate" method="post" novalidate>
 
 				<!-- choose to play video >
 				<input type="file" accept="video/*"/
@@ -89,7 +89,6 @@
 				<input type="text" class="form-control" id="infantName" name="infantName" placeholder="Yaro">
 			</div>
 
-		</form>
 	</div>
 	<div class="col-md-8">
 		<video controls autoplay></video>
@@ -113,8 +112,8 @@
 
 		<tbody>
 			<tr class="coding-row">
-				<td><input type="text" id="start_time" class="row_timer" name="r1_Start_Time"> <button class="set-time btn btn-success btn-xs" data-title="Delete" data-target="#delete" disabled><span class="glyphicon glyphicon-plus"></span></button></td>
-				<td><input class="form-control" type="text" name="r1_Activity" list="activity"placeholder="Carry"></td>
+				<td><input type="time" id="start_time" class="row_timer" name="startTime"> <button class="set-time btn btn-success btn-xs" data-title="Delete" data-target="#delete" disabled><span class="glyphicon glyphicon-plus"></span></button></td>
+				<td><input class="form-control" type="text" name="activity" list="activity"placeholder="Carry"></td>
           <datalist id="activity">
             <option>CARRY</option>
             <option>NURSE</option>
@@ -125,7 +124,7 @@
             <option>BECKON</option>
             <option>DRUM</option>
           </datalist>
-				<td><input class="form-control" type="text" name="r1_Variation" list="variation"placeholder="Ventral"></td>
+				<td><input class="form-control" type="text" name="variation" list="variation"placeholder="Ventral"></td>
           <datalist id="variation">
             <option>Ventral</option>
             <option>Dorsal</option>
@@ -138,9 +137,9 @@
             <option>Teasing</option>
             <option>Other</option>
           </datalist>
-				<td><input type="text" id="end_time" class="row_timer" name="r1_End_Time"> <button class="set-time btn btn-primary btn-xs" data-title="Delete" data-target="#delete" disabled><span class="glyphicon glyphicon-plus"></span></button></td>
-				<td><input class="form-control" type="text" name="r1_Partner" placeholder="Mother"></td>
-				<td><input class="form-control" type="text" name="r1_Comment" placeholder="Sexual Behavior"></td>
+				<td><input type="time" id="end_time" class="row_timer" name="endTime"> <button class="set-time btn btn-primary btn-xs" data-title="Delete" data-target="#delete" disabled><span class="glyphicon glyphicon-plus"></span></button></td>
+				<td><input class="form-control" type="text" name="partner" placeholder="Mother"></td>
+				<td><input class="form-control" type="text" name="comment" placeholder="Sexual Behavior"></td>
 				<td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
 			</tr>
 			<tr>
@@ -152,10 +151,11 @@
 	<div class=row>
 		<div class="col-md-2">
 			<input type="submit" value="Submit" class="btn btn-secondary"/>
-      <a href="home">    Cancel </a>
+      		<a href="home">    Cancel </a>
 		</div>
 	</div>
 </div>
+</form>
 
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -231,5 +231,32 @@ $(function(){
 		ListenerSuite.setTime();
 	})
 </script>
+
+<script>
+$(function() {
+
+	var get_pad_nb = function (nb) {
+		while (nb.length < 2) {
+			nb = '0' + nb;
+		}
+
+		return nb;
+	};
+
+	var update_time = function () {
+		var hours = get_pad_nb($("input#duration-hours").val());
+		var minutes = get_pad_nb($("input#duration-minutes").val());
+		var seconds = get_pad_nb($("input#duration-seconds").val());
+
+   		$('input[name=startTime]').val(hours + ':' + minutes + ':' + seconds); 
+	};
+
+	$("#duration-hours").on('change', update_time);
+ 	$("#duration-minutes").on('change', update_time);
+	$("#duration-seconds").on('change', update_time);
+
+});
+</script>
+
 </body>
 </html>
