@@ -2,8 +2,8 @@
 //! DB fields: file_name, recorded_date, species, infant_name, time_due
 exports.view = function(req, res, db) {
 	var video_name 		= req.body.fileName;
-	var data_record     = req.body.date;
-	var indivisual_name = req.body.infantName;
+	var date_record     = req.body.date;
+	var individual_name = req.body.infantName;
 	var video_description = req.body.video_description;
     var start_time 	    = data_record + ' ' + req.body.startTime;
     var activity 	= req.body.activity;
@@ -14,7 +14,7 @@ exports.view = function(req, res, db) {
 
 	//! TODO: escape input
 	//! TODO: fix insert of recorded_date & time_due is broken
-	db.query('INSERT INTO video (video_name, data_record, video_discription) VALUES ("'+ video_name +'", "'+ data_record + '", "'+  video_description + '")', function (error, results, fields) {
+	db.query('INSERT INTO video (video_name, data_record, video_description) VALUES ("'+ video_name +'", "'+ data_record + '", "'+  video_description + '")', function (error, results, fields) {
 		console.log(error);
 		db.query('INSERT INTO activity (start_time, activity, variation, end_time, partner, comment) VALUES ("'+ start_time +'", "'+ activity +'", "'+ variation +'", "'+ end_time +'", "'+ partner +'", "'+ comment  + '")', function (error, results, fields) {
 			console.log(error);

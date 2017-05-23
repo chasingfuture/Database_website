@@ -1,3 +1,3 @@
 #!/bin/bash
 
-node node_modules/db-migrate/bin/db-migrate down --config config/database.json
+node node_modules/db-migrate/bin/db-migrate up --config config/database.json
