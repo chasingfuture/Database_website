@@ -5,16 +5,16 @@ exports.view = function(req, res, db) {
 	var date_record     = req.body.date;
 	var individual_name = req.body.infantName;
 	var video_description = req.body.video_description;
-    var start_time 	    = data_record + ' ' + req.body.startTime;
+    var start_time 	    = date_record + ' ' + req.body.startTime;
     var activity 	= req.body.activity;
     var variation 	= req.body.variation;
-    var end_time	= data_record + ' ' + req.body.endTime;
+    var end_time	= date_record + ' ' + req.body.endTime;
     var partner 	= req.body.partner;
     var comment 	= req.body.comment;
 
 	//! TODO: escape input
 	//! TODO: fix insert of recorded_date & time_due is broken
-	db.query('INSERT INTO video (video_name, data_record, video_description) VALUES ("'+ video_name +'", "'+ data_record + '", "'+  video_description + '")', function (error, results, fields) {
+	db.query('INSERT INTO video (video_name, data_record, video_description) VALUES ("'+ video_name +'", "'+ date_record + '", "'+  video_description + '")', function (error, results, fields) {
 		console.log(error);
 		db.query('INSERT INTO activity (start_time, activity, variation, end_time, partner, comment) VALUES ("'+ start_time +'", "'+ activity +'", "'+ variation +'", "'+ end_time +'", "'+ partner +'", "'+ comment  + '")', function (error, results, fields) {
 			console.log(error);
