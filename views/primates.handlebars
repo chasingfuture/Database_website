@@ -86,7 +86,12 @@
 
 			<div class="form-group">
 				<label for="infantName">Infant Name: </label>
-				<input type="text" class="form-control" id="infantName" name="infantName" placeholder="Yaro">
+					<input type="text" class="form-control" id="infantName" name="infantName" placeholder="Yaro" list="infant_info" >
+					<datalist id="infant_info">
+						{{#each infant}}
+            			<option>{{individual_name}} {{individual_birthday}}</option>
+            			{{/each}}
+          			</datalist>
 			</div>
 
 			<div class="form-group">
@@ -168,6 +173,7 @@
 </div>	
 </div>
 </form>
+
 
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>

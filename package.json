@@ -2,22 +2,21 @@
   "name": "Database",
   "version": "0.0.1",
   "author": "Mengying Li",
-
   "repository": {
     "type": "git",
     "url": "https://github.com/Cylix/database_website"
   },
-
   "private": true,
   "scripts": {
     "start": "node app.js"
   },
   "dependencies": {
+    "db-migrate": "*",
+    "db-migrate-mysql": "*",
     "express": "3.x",
     "express3-handlebars": "*",
-    "mysql": "*",
-    "db-migrate": "*",
-    "db-migrate-mysql": "*"
+    "handlebars-helpers": "^0.8.2",
+    "mysql": "*"
   },
   "engines": {
     "node": "0.10.x"
