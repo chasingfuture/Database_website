@@ -86,12 +86,15 @@
 
 			<div class="form-group">
 				<label for="infantName">Infant Name: </label>
-					<input type="text" class="form-control" id="infantName" name="infantName" placeholder="Yaro" list="infant_info" >
-					<datalist id="infant_info">
-						{{#each infant}}
-            			<option>{{individual_name}} {{individual_birthday}}</option>
-            			{{/each}}
-          			</datalist>
+				<select class="form-control" id="infant_info" name="infantId">
+					<option value="0">Infant name not in the drop down list</option>
+					{{#each infant}}
+        			<option value={{id}}>{{individual_name}} {{individual_birthday}}</option>
+        			{{/each}}
+      			</select>
+			</div>
+			<div class="form-group">
+				<input type="text"  id="infantName"  placeholder="Infant name" list="infant_info" name="infantName" class="form-control">
 			</div>
 
 			<div class="form-group">
@@ -292,6 +295,17 @@ $(function() {
 	$(document).on('change', "#duration-hours", update_time);
  	$(document).on('change', "#duration-minutes", update_time);
 	$(document).on('change', "#duration-seconds", update_time);
+
+	var toggleInfantInput = function (selectVal) {
+		console.log(selectVal)
+		$('#infantName').toggle(selectVal == 0)
+	};
+
+	$('#infant_info').on('change', function () {
+		toggleInfantInput($(this).val());
+	});
+
+	toggleInfantInput($('#infant_info').val())
 
 });
 </script>

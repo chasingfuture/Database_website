@@ -1,4 +1,5 @@
 //! Module dependencies.
+var moment		= require('moment');
 var express     = require('express');
 var http        = require('http');
 var path        = require('path');
@@ -64,8 +65,6 @@ app.get('/signup', function (req, res) { signup.view(req, res, connection) } );
 
 var create_primate = require('./routes/create_primate');
 app.post('/create_primate', function (req, res) { create_primate.view(req, res, connection) } );
-
-
 
 //! Run server
 http.createServer(app).listen(app.get('port'), function(){
