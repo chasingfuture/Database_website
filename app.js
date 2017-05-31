@@ -6,7 +6,6 @@ var path        = require('path');
 var handlebars  = require('express3-handlebars')
 var app         = express();
 var mysql       = require('mysql');
-var helpers 	= require('handlebars-helpers')();
 
 //! Create connection to database
 var connection = mysql.createConnection({
