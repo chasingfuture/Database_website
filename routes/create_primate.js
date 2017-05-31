@@ -4,6 +4,7 @@ exports.view = function(req, res, db) {
 	var video_name 		= req.body.fileName;
 	var date_record     = req.body.date;
 	var individual_id = req.body.infantId;
+	var individual_name = req.body.infantName;
 	var video_description = req.body.video_description;
     var start_time 	    = date_record + ' ' + req.body.startTime;
     var activity 	= req.body.activity;
@@ -11,6 +12,15 @@ exports.view = function(req, res, db) {
     var end_time	= date_record + ' ' + req.body.endTime;
     var partner 	= req.body.partner;
     var comment 	= req.body.comment;
+
+    //! TODO: cjeck if the infantId is 0 or not, if so, create a new row in the individual table first
+    if (individual_id == 0) {
+    	db.query('INSERT INTO individual (individual_name) VALUES ("'+ individual_name + '")', function (error, results, fields) {
+    		individual_id = results.insertId;
+    		console.log(individual_id);
+    		console.log(error);
+    	});
+	}
 
 	//! TODO: escape input
 	db.query('INSERT INTO video (video_name, data_record, video_description, indivisual_id) VALUES ("'+ video_name +'", "'+ date_record + '", "'+  video_description + '", "' + individual_id + '")', function (error, results, fields) {
