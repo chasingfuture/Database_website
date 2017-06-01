@@ -19,18 +19,32 @@ exports.view = function(req, res, db) {
     		individual_id = results.insertId;
     		console.log(individual_id);
     		console.log(error);
+    		var test = 'INSERT INTO video (video_name, data_record, individual_id, video_description) VALUES ("'+ video_name +'", "'+ date_record + '", "'+  individual_id + '", "' + video_description + '")';
+			console.log(test);
+    		db.query('INSERT INTO video (video_name, data_record, individual_id, video_description) VALUES ("'+ video_name +'", "'+ date_record + '", "'+  individual_id + '", "' + video_description + '")', function (error, results, fields) 		{
+				console.log(individual_id);
+				console.log(error);
+				console.log(results.insertId);
+				db.query('INSERT INTO activity (start_time, activity, variation, end_time, partner, comment, individual_id, video_id) VALUES ("'+ start_time +'", "'+ activity +'", "'+ variation +'", "'+ end_time +'", "'+ partner +'", "'+ comment  +  '", "' + individual_id + '", "' +  results.insertId + '")', function (error, results, fields) {
+					console.log(error);
+				});
+			});
     	});
 	}
-
+	else {
 	//! TODO: escape input
-	db.query('INSERT INTO video (video_name, data_record, video_description, indivisual_id) VALUES ("'+ video_name +'", "'+ date_record + '", "'+  video_description + '", "' + individual_id + '")', function (error, results, fields) {
+	db.query('INSERT INTO video (video_name, data_record, individual_id, video_description) VALUES ("'+ video_name +'", "'+ date_record + '", "'+  individual_id + '", "' + video_description + '")', function (error, results, fields) {
+		console.log(individual_id);
 		console.log(error);
 		console.log(results.insertId);
-		db.query('INSERT INTO activity (start_time, activity, variation, end_time, partner, comment, indivisual_id, video_id) VALUES ("'+ start_time +'", "'+ activity +'", "'+ variation +'", "'+ end_time +'", "'+ partner +'", "'+ comment  +  '", "' + individual_id + '", "' +  results.insertId + '")', function (error, results, fields) {
+		db.query('INSERT INTO activity (start_time, activity, variation, end_time, partner, comment, individual_id, video_id) VALUES ("'+ start_time +'", "'+ activity +'", "'+ variation +'", "'+ end_time +'", "'+ partner +'", "'+ comment  +  '", "' + individual_id + '", "' +  results.insertId + '")', function (error, results, fields) {
 			console.log(error);
 		});
 		//	db.query('INSERT INTO primates (file_name, recorded_date, species, infant_name, time_due) VALUES ("'+ file_name +'", "'+ recorded_date +'", "'+ species +'", "'+ infant_name +'", "'+ time_due +'")', function (error, results, fields){} 
         //! TODO: check error
-		res.redirect('/home');
+
 	});
+	}
+
+	res.redirect('/home');
 };

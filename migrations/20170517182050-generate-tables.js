@@ -7,17 +7,17 @@ exports.up = function(db, callback) {
     	individual_name:     'string', 
     	individual_birthday: 'date',
     	species:      		 'string',
-    	indivisual_description:   'string',
+    	individual_description:   'string',
 
   	}, function () {
 		db.createTable('video', {
 		id:       { type: 'int', primaryKey: true, autoIncrement: true },
 	    video_name:        'string',
-	    data_record:       'date',
-	    indivisual_id:   { type: 'int', unsigned: true, length: 10, notNull: true,
+	    date_record:       'date',
+	    individual_id:   { type: 'int', unsigned: true, length: 10, notNull: true,
         	foreignKey:  {
-          		name: 'indivisual_id_fk',
-          		table: 'indivisual',
+          		name: 'individual_id_fk',
+          		table: 'individual',
           		rules: {
             		onDelete: 'CASCADE',
           		},
@@ -35,10 +35,10 @@ exports.up = function(db, callback) {
 	    end_time:   'datetime',
 	    partner:   'string',
 	    comment:   'string',
-	    indivisual_id:   { type: 'int', unsigned: true, length: 10, notNull: true,
+	    individual_id:   { type: 'int', unsigned: true, length: 10, notNull: true,
         	foreignKey:  {
-          		name: 'indivisual_id_fk',
-          		table: 'indivisual',
+          		name: 'individual_id_fk',
+          		table: 'individual',
           		rules: {
             		onDelete: 'CASCADE',
           		},
@@ -62,7 +62,7 @@ exports.up = function(db, callback) {
 };
 
 exports.down = function(db, callback) {
-    db.dropTable('indivisual', function () {
+    db.dropTable('individual', function () {
     	db.dropTable('video', function () {
 		    db.dropTable('activity', callback);
     	});
