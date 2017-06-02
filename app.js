@@ -59,6 +59,9 @@ app.get('/human', function (req, res) { human.view(req, res, connection) } );
 var dogs = require('./routes/dogs');
 app.get('/dogs', function (req, res) { dogs.view(req, res, connection) } );
 
+var individual = require('./routes/individual');
+app.get('/individual', function (req, res) { individual.view(req, res, connection) } );
+
 var signup = require('./routes/signup');
 app.get('/signup', function (req, res) { signup.view(req, res, connection) } );
 

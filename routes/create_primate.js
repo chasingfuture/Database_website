@@ -19,9 +19,7 @@ exports.view = function(req, res, db) {
     		individual_id = results.insertId;
     		console.log(individual_id);
     		console.log(error);
-    		var test = 'INSERT INTO video (video_name, data_record, individual_id, video_description) VALUES ("'+ video_name +'", "'+ date_record + '", "'+  individual_id + '", "' + video_description + '")';
-			console.log(test);
-    		db.query('INSERT INTO video (video_name, data_record, individual_id, video_description) VALUES ("'+ video_name +'", "'+ date_record + '", "'+  individual_id + '", "' + video_description + '")', function (error, results, fields) 		{
+    		db.query('INSERT INTO video (video_name, date_record, individual_id, video_description) VALUES ("'+ video_name +'", "'+ date_record + '", "'+  individual_id + '", "' + video_description + '")', function (error, results, fields) 		{
 				console.log(individual_id);
 				console.log(error);
 				console.log(results.insertId);
@@ -33,7 +31,7 @@ exports.view = function(req, res, db) {
 	}
 	else {
 	//! TODO: escape input
-	db.query('INSERT INTO video (video_name, data_record, individual_id, video_description) VALUES ("'+ video_name +'", "'+ date_record + '", "'+  individual_id + '", "' + video_description + '")', function (error, results, fields) {
+	db.query('INSERT INTO video (video_name, date_record, individual_id, video_description) VALUES ("'+ video_name +'", "'+ date_record + '", "'+  individual_id + '", "' + video_description + '")', function (error, results, fields) {
 		console.log(individual_id);
 		console.log(error);
 		console.log(results.insertId);

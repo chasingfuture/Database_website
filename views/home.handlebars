@@ -65,6 +65,7 @@
                 <li><a href="primates">Primates</a></li>
                 <li><a href="human">Human</a></li>
                 <li><a href="dogs">Dogs</a></li>
+                <li><a href="individual">Profile</a></li>
             </ul>
 
         </div>
@@ -103,12 +104,12 @@
 			</thead>
 
 			<tbody>
-				{{#each primates}}
+				{{#each data}}
 					<tr>
 						<!-- <td>{{id}}</td> -->
                         <td><input type="checkbox" class="checkthis" /></td>
                         <td>{{individual_name}}</td>
-						<td>{{recorded_date}}</td>
+						<td>{{age}}</td>
 						<td>{{species}}</td>
                         <td>{{activity}}</td>
                         <td>{{variation}}</td>
