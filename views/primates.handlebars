@@ -127,7 +127,7 @@
 
 		<tbody>
 			<tr class="coding-row">
-				<td><input type="time" id="start_time" class="start_time row_timer" name="startTime"> <button class="set-time btn btn-success btn-xs" data-title="Delete" data-target="#delete" disabled><span class="glyphicon glyphicon-plus"></span></button></td>
+				<td><input type="time" id="start_time" class="start_time row_timer" name="startTime"> <button type="button" class="set-time btn btn-success btn-xs" data-title="Delete" data-target="#delete" disabled><span class="glyphicon glyphicon-plus"></span></button></td>
 				<td><input class="form-control" type="text" name="activity" list="activity"placeholder="Carry"></td>
           <datalist id="activity">
             <option>CARRY</option>
@@ -154,7 +154,7 @@
           </datalist>
 				<td>
 					<input type="time" id="end_time" class="row_timer" name="endTime">
-					<button class="set-time btn btn-primary btn-xs">
+					<button type="button" class="set-time btn btn-primary btn-xs" disabled>
 						<span class="glyphicon glyphicon-plus"></span>
 					</button>
 				</td>
@@ -176,7 +176,7 @@
 
 	</div>
 	<br style="margin-bottom:700px;"/>
-</div>	
+</div>
 </div>
 </form>
 
@@ -214,9 +214,9 @@ $(function(){
 </script>
 
 <script>
-		$(document).on('click', ".deleteBtn", function() {	    	
+		$(document).on('click', ".deleteBtn", function() {
 			var whichtr = $(this).parents("tr");
-	    	whichtr.remove();  
+	    	whichtr.remove();
 	    });
 </script>
 
@@ -293,7 +293,7 @@ $(function() {
 		var minutes = get_pad_nb(minutesInput.val());
 		var seconds = get_pad_nb(secondsInput.val());
 
-   		parent.find('input[name=startTime]').val(hours + ':' + minutes + ':' + seconds); 
+   		parent.find('input[name=startTime]').val(hours + ':' + minutes + ':' + seconds);
 	};
 
 	$(document).on('change', "#duration-hours", update_time);
