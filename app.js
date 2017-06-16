@@ -68,6 +68,9 @@ app.get('/signup', function (req, res) { signup.view(req, res, connection) } );
 var create_primate = require('./routes/create_primate');
 app.post('/create_primate', function (req, res) { create_primate.view(req, res, connection) } );
 
+var tree = require('./routes/tree');
+app.get('/tree', function (req, res) { tree.view(req, res, connection) } );
+
 //! Run server
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

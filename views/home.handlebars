@@ -38,7 +38,6 @@
 }
     img {
     position: relative;
-    left: 50px;
     top: 90px
 }
 </style>
@@ -77,6 +76,7 @@
 <div class="container">
     <img src="img/ccl_logo.jpg" height=70px align=left>
     <form>
+        <a href="tree"><img src="img/tree.png" height=70px align=right></a>
         <input type="text" name="search" placeholder="Search..">
     </form>
 </div>
@@ -84,17 +84,15 @@
 <!-- Primates list -->
 <div class="container primates_list">
         <div class="col-md-13">
-        <div class="table-responsive">
-
-                
+        <div class="table-responsive">                
             <table id="mytable" class="table table-bordred table-striped">
 		      <!--<table class="table">-->
 			<thead>
 				<!-- <th>ID</th> -->
                 <th><input type="checkbox" id="checkall" /></th>
+                <th>Species</th>
                 <th>Infant Name</th>
 				<th>Age</th>
-				<th>Species</th>
                 <th>Activity</th>
                 <th>Variation</th>
                 <th>Partner</th>
@@ -108,9 +106,9 @@
 					<tr>
 						<!-- <td>{{id}}</td> -->
                         <td><input type="checkbox" class="checkthis" /></td>
+                        <td>{{species}}</td>
                         <td>{{individual_name}}</td>
-						<td>{{age}}</td>
-						<td>{{species}}</td>
+						<td>{{month}} months {{day}} days</td>
                         <td>{{activity}}</td>
                         <td>{{variation}}</td>
                         <td>{{partner}}</td>
@@ -132,7 +130,7 @@
   <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
 </ul>
                 
-            </div>
+</div>
 </div>
 
     
