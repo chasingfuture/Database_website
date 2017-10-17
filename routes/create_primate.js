@@ -17,12 +17,9 @@ exports.view = function(req, res, db) {
     if (individual_id == 0) {
     	db.query('INSERT INTO individual (individual_name) VALUES ("'+ individual_name + '")', function (error, results, fields) {
     		individual_id = results.insertId;
-    		console.log(individual_id);
     		console.log(error);
     		db.query('INSERT INTO video (video_name, date_record, individual_id, video_description) VALUES ("'+ video_name +'", "'+ date_record + '", "'+  individual_id + '", "' + video_description + '")', function (error, results, fields) 		{
-				console.log(individual_id);
 				console.log(error);
-				console.log(results.insertId);
 				db.query('INSERT INTO activity (start_time, activity, variation, end_time, partner, comment, individual_id, video_id) VALUES ("'+ start_time +'", "'+ activity +'", "'+ variation +'", "'+ end_time +'", "'+ partner +'", "'+ comment  +  '", "' + individual_id + '", "' +  results.insertId + '")', function (error, results, fields) {
 					console.log(error);
 				});
