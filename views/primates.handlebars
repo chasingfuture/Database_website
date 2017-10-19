@@ -215,7 +215,10 @@ $(function(){
 <script>
 		$(document).on('click', ".deleteBtn", function() {
 			var whichtr = $(this).parents("tr");
+			var numRow = $(".coding-row").length;
+			if (numRow > 1) {
 	    	whichtr.remove();
+	    	}
 	    });
 </script>
 
@@ -250,7 +253,7 @@ $(function(){
 	        var $clone = ($test).first().clone();
 			console.log($clone);
 	        $clone.find("input").val("");
-	        $clone.appendTo("tbody");
+	        $clone.prependTo("tbody");
 	    })
 
 
