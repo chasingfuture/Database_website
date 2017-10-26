@@ -63,7 +63,7 @@ var individual = require('./routes/individual');
 app.get('/individual', function (req, res) { individual.view(req, res, connection) } );
 
 var signup = require('./routes/signup');
-app.get('/signup', function (req, res) { signup.view(req, res, connection) } );
+app.post('/signup', function (req, res) { signup.view(req, res, connection) } );
 
 var create_primate = require('./routes/create_primate');
 app.post('/create_primate', function (req, res) { create_primate.view(req, res, connection) } );
